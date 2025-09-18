@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Clientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .subsystem {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ecf0f1;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .usuarios {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .requirement {
+            margin-bottom: 10px;
+        }
+        .requirement strong {
+            color: #27ae60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+                margin: 10px;
+            }
+            .subsystem {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="subsystem">
+        <h2>Ventas</h2>
+        <p>El subsistema "Ventas" permite que el empleado observe, verifique y confirme las ventas del día, de la misma manera, el dueño podrá generar un reporte en la cual actualizará o eliminará las ventas, así tendrán un control en el corte de caja o saber cuáles han sido las ganancias del día.</p>
+
+        <h3>Usuarios del subsistema</h3>
+        <div class="usuarios">
+            <ul>
+                <li>Dueño</li>
+                <li>Empleados</li>
+            </ul>
+        </div>
+
+        <h3>Requerimientos por usuario</h3>
+
+        <h4>Requerimientos del Dueño</h4>
+        <p>El dueño debe ser capaz de:</p>
+        <ol>
+            <li class="requirement"><strong>Registrar</strong> ventas en cualquier momento con información completa: Cliente, empleado vendedor, productos, totales, método de pago.</li>
+            <li class="requirement"><strong>Actualizar</strong> cualquier venta registrada: Modificar datos, corregir errores, cambiar estados.</li>
+            <li class="requirement"><strong>Consultar</strong> todas las ventas del sistema: Acceso completo a historial de ventas, reportes detallados, análisis de rendimiento.</li>
+            <li class="requirement"><strong>Eliminar</strong> registros de ventas cuando sea necesario por políticas empresariales.</li>
+            <li class="requirement"><strong>Generar reportes</strong> de ventas por período, empleado, cliente o producto.</li>
+            <li class="requirement"><strong>Controlar</strong> el corte de caja diario y las ganancias totales.</li>
+            <li class="requirement"><strong>Supervisar</strong> el rendimiento de ventas por empleado.</li>
+        </ol>
+
+        <h4>Requerimientos de los Empleados</h4>
+        <p>Los empleados deben ser capaces de:</p>
+        <ol>
+            <li class="requirement"><strong>Registrar</strong> ventas durante su turno de trabajo incluyendo: Cliente, productos vendidos, subtotal, impuestos, descuentos, total, método de pago.</li>
+            <li class="requirement"><strong>Actualizar</strong> únicamente sus propias ventas del día actual antes del cierre de turno: Corregir errores, modificar detalles de productos.</li>
+            <li class="requirement"><strong>Consultar</strong> exclusivamente sus propias ventas del día: Verificar transacciones realizadas, revisar totales acumulados.</li>
+            <li class="requirement"><strong>Confirmar</strong> las ventas del día antes del cierre de turno.</li>
+            <li class="requirement"><strong>Procesar</strong> diferentes métodos de pago (Efectivo/Transferencia) según las preferencias del cliente.</li>
+        </ol>
+
+        <h3>MÓDULO VENTAS</h3>
+        <p><strong>Crear</strong> · El dueño · Los empleados (registrar ventas durante su turno)</p>
+        <p><strong>Actualizar</strong> · El dueño (todas las ventas) · Los empleados (solo sus propias ventas del día, antes de cerrar)</p>
+        <p><strong>Leer</strong> · El dueño (todas las ventas y reportes) · Los empleados (solo sus propias ventas del día)</p>
+        <p><strong>Borrar</strong> · El dueño únicamente</p>
+
+        <h4>Tabla: ventas</h4>
+        <table>
+            <tr>
+                <th>Campo</th>
+                <th>Descripción</th>
+            </tr>
+            <tr><td>id_venta</td><td>Clave primaria</td></tr>
+            <tr><td>numero_factura</td><td>Número de factura</td></tr>
+            <tr><td>id_cliente</td><td>Clave foránea</td></tr>
+            <tr><td>id_empleado</td><td>Clave foránea - vendedor</td></tr>
+            <tr><td>fecha_venta</td><td>Fecha de venta</td></tr>
+            <tr><td>subtotal</td><td>Subtotal de la venta</td></tr>
+            <tr><td>impuestos</td><td>Impuestos aplicables</td></tr>
+            <tr><td>descuento</td><td>Descuento aplicado</td></tr>
+            <tr><td>total</td><td>Total de la venta</td></tr>
+            <tr><td>estado_venta</td><td>Pendiente/Completada/Cancelada</td></tr>
+            <tr><td>metodo_pago</td><td>Efectivo/Transferencia</td></tr>
+        </table>
+
+        <h4>Objetivo</h4>
+        <p>El empleado observará, verificará y confirmará las ventas del día, de la misma manera, el dueño podrá generar un reporte en la cual actualizará o eliminará las ventas, así tendrán un control en el corte de caja o saber cuáles han sido las ganancias del día.</p>
+    </div>
+
+</body>
+<a href="index.html">Volver al inicio</a>
+</html>

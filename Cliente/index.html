@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Ventas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .subsystem {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ecf0f1;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .usuarios {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .requirement {
+            margin-bottom: 10px;
+        }
+        .requirement strong {
+            color: #27ae60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+                margin: 10px;
+            }
+            .subsystem {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Gestión de Clientes, Empleados y Ventas</h1>
+
+    <div class="subsystem">
+        <h2>Clientes</h2>
+        <p>El subsistema "Clientes" tiene como objetivo obtener los datos de nuestros clientes para tener un registro en ventas evitando posibles estafas, tener un control en entregar el producto al cliente siguiendo un orden, registrar el método de pago y mantener un control en los inventarios.</p>
+
+        <h3>Usuarios del subsistema</h3>
+        <div class="usuarios">
+            <ul>
+                <li>Dueño</li>
+                <li>Empleados</li>
+                <li>Cliente</li>
+            </ul>
+        </div>
+
+        <h3>Requerimientos por usuario</h3>
+
+        <h4>Requerimientos del Dueño</h4>
+        <p>El dueño debe ser capaz de:</p>
+        <ol>
+            <li class="requirement"><strong>Crear</strong> nuevos registros de clientes con información completa: Nombre, sexo, email, teléfono, dirección, código postal, método de pago.</li>
+            <li class="requirement"><strong>Actualizar</strong> cualquier información del cliente: Datos personales, método de pago, estado de la cuenta.</li>
+            <li class="requirement"><strong>Consultar</strong> toda la información de los clientes registrados para análisis y reportes.</li>
+            <li class="requirement"><strong>Eliminar</strong> cuentas de clientes cuando sea necesario por políticas de la empresa.</li>
+            <li class="requirement"><strong>Gestionar el estado</strong> de los clientes (Activo/Inactivo) para control operacional.</li>
+        </ol>
+
+        <h4>Requerimientos de los Empleados</h4>
+        <p>Los empleados deben ser capaces de:</p>
+        <ol>
+            <li class="requirement"><strong>Registrar</strong> nuevos clientes durante el proceso de venta con datos básicos necesarios.</li>
+            <li class="requirement"><strong>Actualizar</strong> información limitada del cliente: Únicamente número de teléfono.</li>
+            <li class="requirement"><strong>Consultar</strong> información del cliente durante las ventas para verificación y procesamiento de pedidos.</li>
+            <li class="requirement"><strong>Verificar</strong> el método de pago registrado del cliente para procesar transacciones.</li>
+        </ol>
+
+        <h4>Requerimientos del Cliente</h4>
+        <p>El cliente debe ser capaz de:</p>
+        <ol>
+            <li class="requirement"><strong>Proporcionar</strong> información personal precisa durante el registro: Nombre, email, teléfono, dirección.</li>
+            <li class="requirement"><strong>Actualizar</strong> su información de contacto cuando sea necesario.</li>
+            <li class="requirement"><strong>Mantener</strong> actualizado su método de pago preferido (Efectivo/Transferencia).</li>
+        </ol>
+
+        <h3>MÓDULO CLIENTES</h3>
+        <p><strong>Crear</strong> · El dueño · Los empleados (para registrar nuevos clientes)</p>
+        <p><strong>Actualizar</strong> · El dueño · Los empleados (solo datos básicos: teléfono)</p>
+        <p><strong>Leer</strong> · El dueño · Los empleados (para consultar información durante ventas)</p>
+        <p><strong>Borrar</strong> · El dueño únicamente</p>
+
+        <h4>Tabla: clientes</h4>
+        <table>
+            <tr>
+                <th>Campo</th>
+                <th>Descripción</th>
+            </tr>
+            <tr><td>id_cliente</td><td>Clave primaria</td></tr>
+            <tr><td>nombre</td><td>Nombre del cliente</td></tr>
+            <tr><td>sexo</td><td>Sexo del cliente</td></tr>
+            <tr><td>email</td><td>Email del cliente</td></tr>
+            <tr><td>telefono</td><td>Teléfono del cliente</td></tr>
+            <tr><td>direccion</td><td>Dirección del cliente</td></tr>
+            <tr><td>código_postal</td><td>Código postal</td></tr>
+            <tr><td>fecha_registro</td><td>Fecha de registro</td></tr>
+            <tr><td>metodo_pago</td><td>Efectivo/Transferencia</td></tr>
+            <tr><td>estado</td><td>Activo/Inactivo</td></tr>
+        </table>
+
+        <h4>Objetivo</h4>
+        <p>Es obtener los datos de nuestros clientes para tener un registro en ventas evitando posibles estafas, tener un control en entregar el producto al cliente siguiendo un orden, registrar el método de pago y mantener un control en los inventarios.</p>
+    </div>
+
+    <a href="inde.html">Volver al inicio</a>
+    
+</html>

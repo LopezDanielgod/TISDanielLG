@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Empleados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .subsystem {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ecf0f1;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .usuarios {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .requirement {
+            margin-bottom: 10px;
+        }
+        .requirement strong {
+            color: #27ae60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+                margin: 10px;
+            }
+            .subsystem {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="subsystem">
+        <h2>Personal</h2>
+        <p>El subsistema "Personal" permite al dueño tener acceso a registrar, actualizar, observar y eliminar los datos de sus empleados que requiera; manteniendo un orden en sus horarios, verificando que cumplan con su trabajo asignado, también otorgándoles su paga acordada, de la misma manera, los empleados solo tendrán acceso a sus datos personales solamente de ellos.</p>
+
+        <h3>Usuarios del subsistema</h3>
+        <div class="usuarios">
+            <ul>
+                <li>Dueño</li>
+                <li>Empleados</li>
+            </ul>
+        </div>
+
+        <h3>Requerimientos por usuario</h3>
+
+        <h4>Requerimientos del Dueño</h4>
+        <p>El dueño debe ser capaz de:</p>
+        <ol>
+            <li class="requirement"><strong>Crear</strong> registros completos de nuevos empleados incluyendo: Número de empleado, nombre completo, datos personales, información de contacto, fecha de ingreso, puesto, departamento, salario.</li>
+            <li class="requirement"><strong>Actualizar</strong> toda la información del empleado: Datos personales, asignación de puesto, salario, estado laboral.</li>
+            <li class="requirement"><strong>Consultar</strong> información completa de todos los empleados: Datos personales, información laboral, historial salarial.</li>
+            <li class="requirement"><strong>Eliminar</strong> registros de empleados cuando terminen su relación laboral.</li>
+            <li class="requirement"><strong>Gestionar</strong> horarios y supervisar el cumplimiento del trabajo asignado.</li>
+            <li class="requirement"><strong>Controlar</strong> el estado de los empleados (Activo/Inactivo) para gestión operacional.</li>
+        </ol>
+
+        <h4>Requerimientos de los Empleados</h4>
+        <p>Los empleados deben ser capaces de:</p>
+        <ol>
+            <li class="requirement"><strong>Actualizar</strong> únicamente sus propios datos personales: Información de contacto, dirección.</li>
+            <li class="requirement"><strong>Consultar</strong> sus propios datos básicos: Información personal, puesto, departamento (sin acceso a información salarial).</li>
+            <li class="requirement"><strong>Mantener</strong> actualizada su información de contacto para comunicación efectiva.</li>
+        </ol>
+
+        <h3>MÓDULO PERSONAL</h3>
+        <p><strong>Crear</strong> · El dueño únicamente</p>
+        <p><strong>Actualizar</strong> · El dueño únicamente · Los empleados (solo sus propios datos personales)</p>
+        <p><strong>Leer</strong> · El dueño (todos los datos) · Los empleados (solo sus propios datos básicos, no salarios)</p>
+        <p><strong>Borrar</strong> · El dueño únicamente</p>
+
+        <h4>Tabla: empleados</h4>
+        <table>
+            <tr>
+                <th>Campo</th>
+                <th>Descripción</th>
+            </tr>
+            <tr><td>id_empleado</td><td>Clave primaria</td></tr>
+            <tr><td>numero_empleado</td><td>Número de empleado</td></tr>
+            <tr><td>nombre</td><td>Nombre del empleado</td></tr>
+            <tr><td>apellido paterno</td><td>Apellido paterno</td></tr>
+            <tr><td>apellido materno</td><td>Apellido materno</td></tr>
+            <tr><td>sexo</td><td>Sexo del empleado</td></tr>
+            <tr><td>email</td><td>Email del empleado</td></tr>
+            <tr><td>telefono</td><td>Teléfono del empleado</td></tr>
+            <tr><td>direccion</td><td>Dirección del empleado</td></tr>
+            <tr><td>fecha_nacimiento</td><td>Fecha de nacimiento</td></tr>
+            <tr><td>fecha_ingreso</td><td>Fecha de ingreso</td></tr>
+            <tr><td>id_puesto</td><td>Clave foránea</td></tr>
+            <tr><td>id_departamento</td><td>Clave foránea</td></tr>
+            <tr><td>salario</td><td>Salario del empleado</td></tr>
+            <tr><td>estado</td><td>Activo/Inactivo</td></tr>
+        </table>
+
+        <h4>Objetivo</h4>
+        <p>El dueño tendrá acceso a registrar, actualizar, observar y eliminar los datos de sus empleados que requiera; manteniendo un orden en sus horarios, verificando que cumplan con su trabajo asignado, también otorgándoles su paga acordada, de la misma manera, los empleados solo tendrá acceso a sus datos personales solamente de ellos.</p>
+    </div>
+
+    <a href="inde.html">Volver al inicio</a>
+</html>
